@@ -6,5 +6,5 @@ Rolls By The Pound is a small-business bakery located in Newark, OH. This web ap
 
 ### Tech Stack
 
-Front and Backend: Next.js
+Front and Backend: Next.js  
 Database: PostgreSQL via Supabase
