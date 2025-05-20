@@ -1,10 +1,4 @@
-## Project
-
-Project details follow. 
-
-### Project Name
-
-Rolls By The Pound
+## Rolls By The Pound
 
 ### Project Description  
 
@@ -12,6 +6,5 @@ Rolls By The Pound is a small-business bakery located in Newark, OH. This web ap
 
 ### Tech Stack
 
-Frontend: Next.js (React-based)\
-Backend: Next.js\
-Database: PostgreSQL (Supabase)
+Front and Backend: Next.js
+Database: PostgreSQL via Supabase
