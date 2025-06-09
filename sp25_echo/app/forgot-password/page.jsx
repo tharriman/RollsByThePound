@@ -15,7 +15,7 @@ export default function ForgotPassword() {
         setError("");
 
         const { error } = await supabase.auth.resetPasswordForEmail(email, {
-            redirectTo: "http://localhost:3000/reset-password" // Change to your deployed domain in production
+            redirectTo: "https://sp-25-echo.vercel.app/reset-password"
         });
 
         setLoading(false);
