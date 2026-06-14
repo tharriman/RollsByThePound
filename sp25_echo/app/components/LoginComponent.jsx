@@ -63,7 +63,7 @@ export default function LoginComponent() {
                     <h1 className="text-3xl text-center">Welcome Back!</h1>
 
                     <div>
-                        <label className="block mb-2">E-mail</label>
+                        <label className="block mb-2">Email</label>
                         <input
                             className="w-full p-2 border-b-2 border-gray-300"
                             name="email"
