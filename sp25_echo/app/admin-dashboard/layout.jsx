@@ -15,6 +15,9 @@ export default function AdminLayout( { children }) {
 
             if (!user || !user.email.endsWith("@rollsbythepound.com")) {
                 router.push("/login")
+                
+            } else if (profile.role !== "admin") {
+                router.push("/");
             } else {
                 setIsAdmin(true)
             }
