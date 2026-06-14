@@ -11,21 +11,34 @@ export default function AdminLayout( { children }) {
 
     useEffect(() => {
         const checkAdmin = async () => {
-            const { data: { user } } = await supabase.auth.getUser()
+            const {
+                data: { user },
+                error: userError,
+            } = await supabase.auth.getUser();
 
-            if (!user || !user.email.endsWith("@rollsbythepound.com")) {
-                router.push("/login")
-                
-            } else if (profile.role !== "admin") {
-                router.push("/");
-            } else {
-                setIsAdmin(true)
+            if (userError || !user) {
+                router.push("/login");
+                setLoading(false);
+                return;
             }
 
-            setLoading(false)
-        }
+            const { data: profile, error: profileError } = await supabase
+                .from("users")
+                .select("role")
+                .eq("id", user.id)
+                .single();
 
-        checkAdmin()
+            if (profileError || !profile || profile.role !== "admin") {
+                router.push("/");
+                setLoading(false);
+                return;
+            }
+
+            setIsAdmin(true);
+            setLoading(false);
+        };
+
+        checkAdmin();
     }, [router]);
 
     if (loading) return <p>Loading...</p>
