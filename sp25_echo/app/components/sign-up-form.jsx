@@ -32,6 +32,13 @@ export default function SignUp() {
         setError(null);
         setSuccess(null);
 
+        // Block public signup with admin/business email domain
+        if (email.endsWith("@rollsbythepound.com")) {
+            setError("This email domain cannot be used for public registration.");
+            setLoading(false);
+            return;
+        }
+
         // Check if passwords match
         if (formData.password !== formData.confirmPassword) {
             setError("Passwords do not match!");
